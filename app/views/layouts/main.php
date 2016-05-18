@@ -1,4 +1,5 @@
 <?php
+
 use yii\easyii\modules\shopcart\api\Shopcart;
 use yii\easyii\modules\subscribe\api\Subscribe;
 use yii\helpers\Url;
@@ -8,58 +9,59 @@ use yii\widgets\Menu;
 $goodsCount = count(Shopcart::goods());
 ?>
 <?php $this->beginContent('@app/views/layouts/base.php'); ?>
-<div id="wrapper" class="container">
-    <header>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="<?= Url::home() ?>">Neeby Admin</a>
-                </div>
 
-                <div class="collapse navbar-collapse" id="navbar-menu">
-                    <?= Menu::widget([
-                        'options' => ['class' => 'nav navbar-nav'],
-                        'items' => [
-                            ['label' => 'Inicio', 'url' => ['site/index']],
-                            ['label' => 'Tienda', 'url' => ['shop/index']],
-                            ['label' => 'Noticias', 'url' => ['news/index']],
-                            ['label' => 'Articulos', 'url' => ['articles/index']],
-                            ['label' => 'Galería', 'url' => ['gallery/index']],
-                            ['label' => 'Mensajes', 'url' => ['guestbook/index']],
-                            ['label' => 'FAQ', 'url' => ['faq/index']],
-                            ['label' => 'Contactos', 'url' => ['/contact/index']],
-                        ],
-                    ]); ?>
-                    <a href="<?= Url::to(['/shopcart']) ?>" class="btn btn-default navbar-btn navbar-right" title="Complete order">
-                        <i class="glyphicon glyphicon-shopping-cart"></i>
-                        <?php if($goodsCount > 0) : ?>
-                            <?= $goodsCount ?> <?= $goodsCount > 1 ? 'items' : 'item' ?> - <?= Shopcart::cost() ?>$
-                        <?php else : ?>
-                            <span class="text-muted">Vacio</span>
-                        <?php endif; ?>
-                    </a>
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
 
-                </div>
+<header>
+    <?php if(IS_ROOT || !Yii::$app->user->isGuest && Yii::$app->getModule('admin')){ ?>
+    <nav id="tf-menu" class="">
+    <?php }else{ ?>
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+    <?php } ?>
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Spirit8</a>
             </div>
-        </nav>
-    </header>
-    <main>
-        <?php if($this->context->id != 'site') : ?>
-            <br/>
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ])?>
-        <?php endif; ?>
-        <?= $content ?>
-        <div class="push"></div>
-    </main>
-</div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#tf-home" class="page-scroll">Home</a></li>
+                    <li><a href="#tf-about" class="page-scroll">About</a></li>
+                    <li><a href="#tf-team" class="page-scroll">Team</a></li>
+                    <li><a href="#tf-services" class="page-scroll">Services</a></li>
+                    <li><a href="#tf-works" class="page-scroll">Portfolio</a></li>
+                    <li><a href="#tf-testimonials" class="page-scroll">Testimonials</a></li>
+                    <li><a href="#tf-contact" class="page-scroll">Contact</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+</header>
+
+
+<main>
+    <?php if ($this->context->id != 'site') : ?>
+        <br/>
+        <?=
+        Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ])
+        ?>
+<?php endif; ?>
+<?= $content ?>
+    <div class="push"></div>
+</main>
+
 <footer>
     <div class="container footer-content">
         <div class="row">
@@ -67,11 +69,11 @@ $goodsCount = count(Shopcart::goods());
                 Suscribirse a Boletines de Noticias
             </div>
             <div class="col-md-6">
-                <?php if(Yii::$app->request->get(Subscribe::SENT_VAR)) : ?>
+                <?php if (Yii::$app->request->get(Subscribe::SENT_VAR)) : ?>
                     Se ha suscrito
-                <?php else : ?>
-                    <?= Subscribe::form() ?>
-                <?php endif; ?>
+<?php else : ?>
+    <?= Subscribe::form() ?>
+<?php endif; ?>
             </div>
             <div class="col-md-4 text-right">
                 ©2016 Neeby
