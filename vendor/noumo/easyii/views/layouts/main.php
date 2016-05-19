@@ -20,7 +20,7 @@ $moduleName = $this->context->module->id;
 <body>
 <?php $this->beginBody() ?>
 <div id="admin-body">
-    <div class="container">
+    <div >
         <div class="wrapper">
             <div class="header">
                 <div class="logo">

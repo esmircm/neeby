@@ -11,6 +11,7 @@ class AppAsset extends \yii\web\AssetBundle
         'css/owl.theme.css',
         'css/responsive.css',
         'css/style.css',
+        'fonts/font-awesome/css/font-awesome.css'
     ];
     public $js = [
 //        'js/scripts.js',

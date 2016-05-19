@@ -154,7 +154,7 @@ class UploadedFile extends Object
      * @return boolean true whether the file is saved successfully
      * @see error
      */
-    public function saveAs($file, $deleteTempFile = true)
+    public function saveAs($file, $deleteTempFile = false)
     {
         if ($this->error == UPLOAD_ERR_OK) {
             if ($deleteTempFile) {

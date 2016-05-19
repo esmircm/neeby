@@ -36,6 +36,8 @@ class Carousel extends API
 
     public function api_widget($width, $height, $clientOptions = [])
     {
+//        var_dump($width);die;
+        
         if(!count($this->_items)){
             return LIVE_EDIT ? Html::a(Yii::t('easyii/carousel/api', 'Create carousel'), ['/admin/carousel/a/create'], ['target' => '_blank']) : '';
         }

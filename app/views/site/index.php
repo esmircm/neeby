@@ -16,14 +16,15 @@ $this->title = $page->seo('title', $page->model->title);
 
 <style>
 
-    #id_img_fondo{  
+    #dd{
+	
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	color: #cfcfcf;
+}
 
-        
-        /*position: fixed;*/
-        
-        
-
-    }
    
 
 
@@ -33,22 +34,20 @@ $this->title = $page->seo('title', $page->model->title);
 <!-- Home Page
    ==========================================-->
 
+<link rel="stylesheet" type="text/css" href="<?php Yii::$app->basePath; ?>/media/fonts/font-awesome/css/font-awesome.css" />
 
-
+<div class="ss" id="dd">
+   <?= Carousel::widget(1600, 700) ?>
+</div>
+    
 
 <div id="tf-home" class="text-center">
-    <span class="easyiicms-edit" data-edit="/testing_neeby/admin/gallery/a/photos/1#photo-27" >
-    <a class="easyii-box" rel="album-last" title="" href="/uploads/photos/album-1-1.jpg">
-        <img alt="" src="/uploads/photos/album-1-1.jpg" id="id_img_fondo" >
-    </a>
-    <a class="easyiicms-goedit" target="_blank" style="width: 180px; height: 135px;" href="/testing_neeby/admin/gallery/a/photos/1#photo-27"></a>
-</span>
 
     <div class="overlay">
         <div class="content">
-            <h1>Welcome on <strong><span class="color">Spirit8</span></strong></h1>
-            <p class="lead">We are a digital agency with <strong>years of experience</strong> and with <strong>extraordinary people</strong></p>
-            <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
+            <h1>Bienvenido a <strong><span class="color">Neeby</span></strong></h1>
+            <p class="lead">Desarrolladores web con <strong> años de experiencia</strong> y con <strong>gente extraordinaria</strong></p>
+            <a href="#tf-about" class=" glyphicon glyphicon-list"></a>
         </div>
     </div>
 </div>
