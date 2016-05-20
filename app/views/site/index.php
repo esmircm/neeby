@@ -16,18 +16,20 @@ $this->title = $page->seo('title', $page->model->title);
 
 <style>
 
-    #dd{
-	
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	color: #cfcfcf;
-}
+    /*#dd{*/
 
-   
-
-
+        /*position:fixed;*/
+        
+/*        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        color: #cfcfcf;*/
+    }
+    
+    /*#ddd{*/
+        /*position: relative;*/
+    /*}*/
 
 </style>
 
@@ -37,9 +39,11 @@ $this->title = $page->seo('title', $page->model->title);
 <link rel="stylesheet" type="text/css" href="<?php Yii::$app->basePath; ?>/media/fonts/font-awesome/css/font-awesome.css" />
 
 <div class="ss" id="dd">
-   <?= Carousel::widget(1600, 700) ?>
+<div class="ss" id="ddd">
+    <?= Carousel::widget(1600, 700) ?>
 </div>
-    
+</div>
+
 
 <div id="tf-home" class="text-center">
 
@@ -47,7 +51,7 @@ $this->title = $page->seo('title', $page->model->title);
         <div class="content">
             <h1>Bienvenido a <strong><span class="color">Neeby</span></strong></h1>
             <p class="lead">Desarrolladores web con <strong> años de experiencia</strong> y con <strong>gente extraordinaria</strong></p>
-            <a href="#tf-about" class=" glyphicon glyphicon-list"></a>
+            <a href="#tf-about" class="glyphicon glyphicon-list"></a>
         </div>
     </div>
 </div>
